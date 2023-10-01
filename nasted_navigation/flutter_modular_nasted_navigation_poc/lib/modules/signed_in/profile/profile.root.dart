@@ -3,41 +3,32 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/app.absolut_paths.routes.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/navigation_manager.dart';
 
-class ProfileRoot extends StatefulWidget {
-  const ProfileRoot({super.key});
-
-  @override
-  State<ProfileRoot> createState() => _ProfileRootState();
-}
-
-abstract class ProfileRootViewModel extends State<ProfileRoot> {
-  late ProfileRootPageType type;
-
-  ProfileRootPageType _getRootPageType(int value) => switch (value) {
-        0 => ProfileRootPageType.person,
-        1 => ProfileRootPageType.event,
-        _ => ProfileRootPageType.person,
-      };
-
-  void rootNavigate(ProfileRootPageType value) => switch (value) {
-        ProfileRootPageType.person =>
-          NavigationManager.navigate(AppAbsolutPathsRoutes.profileSettings),
-        ProfileRootPageType.event =>
-          NavigationManager.navigate(AppAbsolutPathsRoutes.profileVerification),
-      };
-
-  void onDestinationSelected(int index) {
-    type = _getRootPageType(index);
-    rootNavigate(type);
-  }
-}
-
-enum ProfileRootPageType {
+enum ProfileRootType {
   person,
   event,
 }
 
-class _ProfileRootState extends ProfileRootViewModel {
+class ProfileRoot extends StatelessWidget {
+  const ProfileRoot({super.key});
+
+  ProfileRootType _getRootType(int value) => switch (value) {
+        0 => ProfileRootType.person,
+        1 => ProfileRootType.event,
+        _ => ProfileRootType.person,
+      };
+
+  void rootNavigate(ProfileRootType value) => switch (value) {
+        ProfileRootType.person =>
+          NavigationManager.navigate(AppAbsolutPathsRoutes.profileSettings),
+        ProfileRootType.event =>
+          NavigationManager.navigate(AppAbsolutPathsRoutes.profileVerification),
+      };
+
+  void onDestinationSelected(int index) {
+    final type = _getRootType(index);
+    rootNavigate(type);
+  }
+
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
@@ -54,7 +45,7 @@ class _ProfileRootState extends ProfileRootViewModel {
                         : 1,
                 onDestinationSelected: onDestinationSelected,
                 labelType: NavigationRailLabelType.all,
-                destinations: const <NavigationRailDestination>[
+                destinations: const [
                   NavigationRailDestination(
                     icon: Icon(Icons.settings),
                     label: Text('Settings'),

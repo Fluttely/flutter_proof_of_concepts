@@ -3,41 +3,32 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/app.absolut_paths.routes.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/navigation_manager.dart';
 
-class FindRoot extends StatefulWidget {
-  const FindRoot({super.key});
-
-  @override
-  State<FindRoot> createState() => _FindRootState();
-}
-
-abstract class FindRootViewModel extends State<FindRoot> {
-  late FindRootPageType type;
-
-  FindRootPageType _getRootPageType(int value) => switch (value) {
-        0 => FindRootPageType.person,
-        1 => FindRootPageType.event,
-        _ => FindRootPageType.person,
-      };
-
-  void rootNavigate(FindRootPageType value) => switch (value) {
-        FindRootPageType.person =>
-          NavigationManager.navigate(AppAbsolutPathsRoutes.findPerson),
-        FindRootPageType.event =>
-          NavigationManager.navigate(AppAbsolutPathsRoutes.findEvent),
-      };
-
-  void onDestinationSelected(int index) {
-    type = _getRootPageType(index);
-    rootNavigate(type);
-  }
-}
-
-enum FindRootPageType {
+enum FindRootType {
   person,
   event,
 }
 
-class _FindRootState extends FindRootViewModel {
+class FindRoot extends StatelessWidget {
+  const FindRoot({super.key});
+
+  FindRootType _getRootType(int value) => switch (value) {
+        0 => FindRootType.person,
+        1 => FindRootType.event,
+        _ => FindRootType.person,
+      };
+
+  void rootNavigate(FindRootType value) => switch (value) {
+        FindRootType.person =>
+          NavigationManager.navigate(AppAbsolutPathsRoutes.findPerson),
+        FindRootType.event =>
+          NavigationManager.navigate(AppAbsolutPathsRoutes.findEvent),
+      };
+
+  void onDestinationSelected(int index) {
+    final type = _getRootType(index);
+    rootNavigate(type);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,11 +46,11 @@ class _FindRootState extends FindRootViewModel {
               destinations: const [
                 NavigationDestination(
                   icon: Icon(Icons.people_alt_outlined),
-                  label: 'Find People',
+                  label: 'Find Person',
                 ),
                 NavigationDestination(
                   icon: Icon(Icons.event_note),
-                  label: 'Find Events',
+                  label: 'Find Event',
                 ),
               ],
             );

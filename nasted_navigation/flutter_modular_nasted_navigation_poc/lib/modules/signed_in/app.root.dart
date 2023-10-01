@@ -3,47 +3,45 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/app.absolut_paths.routes.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/navigation_manager.dart';
 
-class SignedInRoot extends StatefulWidget {
-  const SignedInRoot({super.key});
-
-  @override
-  State<SignedInRoot> createState() => _SignedInRootState();
+enum AppRootType {
+  find,
+  chats,
 }
 
-abstract class SignedInRootViewModel extends State<SignedInRoot> {
+class AppRoot extends StatefulWidget {
+  const AppRoot({super.key});
+
+  @override
+  State<AppRoot> createState() => _AppRootState();
+}
+
+abstract class AppRootViewModel extends State<AppRoot> {
   @override
   void initState() {
     NavigationManager.navigate(AppAbsolutPathsRoutes.findPerson);
     super.initState();
   }
 
-  late SignedInRootType type;
-
-  SignedInRootType _getRootPageType(int value) => switch (value) {
-        0 => SignedInRootType.find,
-        1 => SignedInRootType.chats,
-        _ => SignedInRootType.find,
+  AppRootType _getRootType(int value) => switch (value) {
+        0 => AppRootType.find,
+        1 => AppRootType.chats,
+        _ => AppRootType.find,
       };
 
-  void rootNavigate(SignedInRootType value) => switch (value) {
-        SignedInRootType.find =>
+  void rootNavigate(AppRootType value) => switch (value) {
+        AppRootType.find =>
           NavigationManager.navigate(AppAbsolutPathsRoutes.findPerson),
-        SignedInRootType.chats =>
+        AppRootType.chats =>
           NavigationManager.navigate(AppAbsolutPathsRoutes.profileSettings),
       };
 
   void onDestinationSelected(int index) {
-    type = _getRootPageType(index);
+    final type = _getRootType(index);
     rootNavigate(type);
   }
 }
 
-enum SignedInRootType {
-  find,
-  chats,
-}
-
-class _SignedInRootState extends SignedInRootViewModel {
+class _AppRootState extends AppRootViewModel {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

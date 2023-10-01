@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular_nasted_navigation_poc/core/app.routes.dart';
+import 'package:flutter_modular_nasted_navigation_poc/core/app.absolut_paths.routes.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/navigation_manager.dart';
 
 class FindEventView extends StatefulWidget {
@@ -19,7 +19,7 @@ class _FindEventViewState extends FindEventViewViewModel {
         onPressed: () {
           NavigationManager.navigate(AppAbsolutPathsRoutes.profileVerification);
         },
-        child: const Text('Navigate to Find People Page'),
+        child: const Text('Navigate to Profile Veification Page'),
       ),
     );
   }

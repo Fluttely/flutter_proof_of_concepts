@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular_nasted_navigation_poc/core/app.routes.dart';
+import 'package:flutter_modular_nasted_navigation_poc/core/app.absolut_paths.routes.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/navigation_manager.dart';
 
 class FindPersonMatchView extends StatefulWidget {
@@ -9,20 +9,21 @@ class FindPersonMatchView extends StatefulWidget {
   State<FindPersonMatchView> createState() => _FindPersonMatchViewState();
 }
 
-abstract class FindPersonMatchViewViewModel extends State<FindPersonMatchView> {}
+abstract class FindPersonMatchViewViewModel
+    extends State<FindPersonMatchView> {}
 
 class _FindPersonMatchViewState extends FindPersonMatchViewViewModel {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
+        decoration:  BoxDecoration(
           gradient: LinearGradient(
-            end: Alignment(0.0, 0.4),
-            begin: Alignment(0.0, -1),
+            end: const Alignment(0.0, 0.4),
+            begin: const Alignment(0.0, -1),
             colors: <Color>[
-              Colors.redAccent,
-              Colors.redAccent,
+              Colors.red,
+              Colors.red.shade300,
             ],
           ),
         ),

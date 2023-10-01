@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_modular_nasted_navigation_poc/core/app.routes.dart';
+import 'package:flutter_modular_nasted_navigation_poc/core/app.absolut_paths.routes.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/navigation_manager.dart';
 
 class ProfileRoot extends StatefulWidget {
@@ -11,8 +11,6 @@ class ProfileRoot extends StatefulWidget {
 }
 
 abstract class ProfileRootViewModel extends State<ProfileRoot> {
-  ValueNotifier<int> selectedPageIndex = ValueNotifier(0);
-
   late ProfileRootPageType type;
 
   ProfileRootPageType _getRootPageType(int value) => switch (value) {
@@ -29,8 +27,6 @@ abstract class ProfileRootViewModel extends State<ProfileRoot> {
       };
 
   void onDestinationSelected(int index) {
-    selectedPageIndex.value = index;
-
     type = _getRootPageType(index);
     rootNavigate(type);
   }
@@ -44,57 +40,61 @@ enum ProfileRootPageType {
 class _ProfileRootState extends ProfileRootViewModel {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(64.0),
-        child: ValueListenableBuilder(
-          valueListenable: NavigationManager.currentRoute,
-          builder: (__, value, _) {
-            return NavigationBar(
-              indicatorColor: Colors.transparent,
-              backgroundColor: Colors.redAccent,
-              selectedIndex:
-                  value?.contains(AppAbsolutPathsRoutes.profileSettings) == true
-                      ? 0
-                      : 1,
-              elevation: 0,
-              height: 52,
-              onDestinationSelected: onDestinationSelected,
-              destinations: [
-                NavigationDestination(
-                  selectedIcon: const Icon(
-                    Icons.settings,
-                    color: Colors.white,
-                    size: 32,
+    return ValueListenableBuilder(
+      valueListenable: NavigationManager.currentRoute,
+      builder: (__, value, _) {
+        return Scaffold(
+          body: Row(
+            children: <Widget>[
+              NavigationRail(
+                indicatorColor: Colors.transparent,
+                backgroundColor: Colors.white,
+                selectedIndex:
+                    value?.contains(AppAbsolutPathsRoutes.profileSettings) ==
+                            true
+                        ? 0
+                        : 1,
+                onDestinationSelected: onDestinationSelected,
+                labelType: NavigationRailLabelType.selected,
+                destinations: const <NavigationRailDestination>[
+                  NavigationRailDestination(
+                    selectedIcon: Icon(
+                      Icons.settings,
+                      size: 32,
+                    ),
+                    icon: Icon(
+                      Icons.settings,
+                      color: Colors.grey,
+                      size: 32,
+                    ),
+                    label: Text(
+                      'Settings',
+                    ),
                   ),
-                  icon: Icon(
-                    Icons.settings,
-                    color: Colors.grey[800],
-                    size: 32,
+                  NavigationRailDestination(
+                    selectedIcon: Icon(
+                      Icons.verified,
+                      size: 32,
+                    ),
+                    icon: Icon(
+                      Icons.verified_outlined,
+                      color: Colors.grey,
+                      size: 32,
+                    ),
+                    label: Text(
+                      'Verification',
+                    ),
                   ),
-                  label: 'Settings',
-                  tooltip: 'Search for people',
-                ),
-                NavigationDestination(
-                  selectedIcon: const Icon(
-                    Icons.verified,
-                    color: Colors.white,
-                    size: 32,
-                  ),
-                  icon: Icon(
-                    Icons.verified_outlined,
-                    color: Colors.grey[800],
-                    size: 32,
-                  ),
-                  label: 'Verification',
-                  tooltip: 'Search for events',
-                ),
-              ],
-            );
-          },
-        ),
-      ),
-      body: const RouterOutlet(),
+                ],
+              ),
+              const VerticalDivider(thickness: 1, width: 1),
+              const Expanded(
+                child: RouterOutlet(),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

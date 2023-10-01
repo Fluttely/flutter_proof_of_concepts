@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_modular_nasted_navigation_poc/core/app.routes.dart';
+import 'package:flutter_modular_nasted_navigation_poc/core/app.absolut_paths.routes.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/navigation_manager.dart';
 
 class FindRoot extends StatefulWidget {
@@ -11,8 +11,6 @@ class FindRoot extends StatefulWidget {
 }
 
 abstract class FindRootViewModel extends State<FindRoot> {
-  ValueNotifier<int> selectedPageIndex = ValueNotifier(0);
-
   late FindRootPageType type;
 
   FindRootPageType _getRootPageType(int value) => switch (value) {
@@ -29,8 +27,6 @@ abstract class FindRootViewModel extends State<FindRoot> {
       };
 
   void onDestinationSelected(int index) {
-    selectedPageIndex.value = index;
-
     type = _getRootPageType(index);
     rootNavigate(type);
   }
@@ -51,8 +47,8 @@ class _FindRootState extends FindRootViewModel {
           valueListenable: NavigationManager.currentRoute,
           builder: (__, value, _) {
             return NavigationBar(
-              indicatorColor: Colors.transparent,
-              backgroundColor: Colors.redAccent,
+              indicatorColor: Colors.red.shade300,
+              backgroundColor: Colors.red,
               selectedIndex:
                   value?.contains(AppAbsolutPathsRoutes.findPerson) == true
                       ? 0

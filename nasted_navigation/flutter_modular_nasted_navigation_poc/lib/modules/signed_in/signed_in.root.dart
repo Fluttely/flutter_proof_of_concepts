@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_modular_nasted_navigation_poc/core/app.routes.dart';
+import 'package:flutter_modular_nasted_navigation_poc/core/app.absolut_paths.routes.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/navigation_manager.dart';
 
 class SignedInRoot extends StatefulWidget {
@@ -11,14 +11,6 @@ class SignedInRoot extends StatefulWidget {
 }
 
 abstract class SignedInRootViewModel extends State<SignedInRoot> {
-  @override
-  void initState() {
-    NavigationManager.navigate(AppAbsolutPathsRoutes.findPerson);
-    super.initState();
-  }
-
-  ValueNotifier<int> selectedPageIndex = ValueNotifier(0);
-
   late SignedInRootType type;
 
   SignedInRootType _getRootPageType(int value) => switch (value) {
@@ -35,8 +27,6 @@ abstract class SignedInRootViewModel extends State<SignedInRoot> {
       };
 
   void onDestinationSelected(int index) {
-    selectedPageIndex.value = index;
-
     type = _getRootPageType(index);
     rootNavigate(type);
   }
@@ -56,19 +46,17 @@ class _SignedInRootState extends SignedInRootViewModel {
         valueListenable: NavigationManager.currentRoute,
         builder: (__, value, _) {
           return NavigationBar(
-            indicatorColor: Colors.transparent,
             backgroundColor: Colors.white,
             selectedIndex:
                 value?.contains(AppAbsolutPathsRoutes.find) == true ? 0 : 1,
             elevation: 0,
-            shadowColor: Colors.redAccent,
             height: 52,
             onDestinationSelected: onDestinationSelected,
             destinations: const [
               NavigationDestination(
                 selectedIcon: Icon(
                   Icons.local_fire_department,
-                  color: Colors.redAccent,
+                  color: Colors.red,
                   size: 32,
                 ),
                 icon: Icon(
@@ -81,7 +69,7 @@ class _SignedInRootState extends SignedInRootViewModel {
               NavigationDestination(
                 selectedIcon: Icon(
                   Icons.person_2,
-                  color: Colors.redAccent,
+                  color: Colors.red,
                   size: 28,
                 ),
                 icon: Icon(

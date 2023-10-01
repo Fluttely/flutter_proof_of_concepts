@@ -54,39 +54,37 @@ class _FindRootState extends FindRootViewModel
             builder: (context, selectedPageIndexValue, _) {
               return NavigationBar(
                 indicatorColor: Colors.transparent,
-                backgroundColor: Colors.purpleAccent,
+                backgroundColor: Colors.redAccent,
                 selectedIndex: selectedPageIndexValue,
                 elevation: 0,
                 height: 52,
                 onDestinationSelected: onDestinationSelected,
-                destinations: [
+                destinations: const [
                   NavigationDestination(
-                    selectedIcon: _navigationIcon(
-                      icon: Icons.people_alt,
+                    selectedIcon: Icon(
+                      Icons.people_alt,
                       color: Colors.white,
                       size: 32,
                     ),
-                    icon: _navigationIcon(
-                      icon: Icons.people_alt_outlined,
+                    icon: Icon(
+                      Icons.people_alt_outlined,
                       color: Colors.black,
                       size: 32,
                     ),
-                    label: '',
-                    tooltip: 'Search for people',
+                    label: 'Find People',
                   ),
                   NavigationDestination(
-                    selectedIcon: _navigationIcon(
-                      icon: Icons.event_note,
+                    selectedIcon: Icon(
+                      Icons.event_note,
                       color: Colors.white,
                       size: 32,
                     ),
-                    icon: _navigationIcon(
-                      icon: Icons.event_note,
+                    icon: Icon(
+                      Icons.event_note,
                       color: Colors.black,
                       size: 32,
                     ),
-                    label: '',
-                    tooltip: 'Search for events',
+                    label: 'Find Events',
                   ),
                 ],
               );
@@ -94,20 +92,6 @@ class _FindRootState extends FindRootViewModel
           ),
         ),
         body: const RouterOutlet(),
-      ),
-    );
-  }
-
-  Widget _navigationIcon({
-    required IconData icon,
-    required Color color,
-    required double size,
-  }) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 16.0),
-      child: Icon(
-        icon,
-        size: size,
       ),
     );
   }

@@ -27,10 +27,9 @@ abstract class SignedInRootViewModel extends State<SignedInRoot> {
       };
 
   void rootNavigate(SignedInRootType value) => switch (value) {
-        SignedInRootType.find =>
-          Modular.to.navigate(AppRoutes.findAbsolutPath),
+        SignedInRootType.find => Modular.to.navigate(AppRoutes.findPersonAbsolutPath),
         SignedInRootType.chats =>
-          Modular.to.navigate(AppRoutes.profileAbsolutPath),
+          Modular.to.navigate(AppRoutes.profilePersonAbsolutPath),
       };
 
   void onDestinationSelected(int index) {
@@ -59,55 +58,39 @@ class _SignedInRootState extends SignedInRootViewModel {
             backgroundColor: Colors.white,
             selectedIndex: selectedPageIndexValue,
             elevation: 0,
-            shadowColor: Colors.purpleAccent,
+            shadowColor: Colors.redAccent,
             height: 52,
             onDestinationSelected: onDestinationSelected,
-            destinations: [
+            destinations: const [
               NavigationDestination(
-                selectedIcon: _navigationIcon(
-                  icon: Icons.local_fire_department,
-                  color: Colors.purpleAccent,
+                selectedIcon: Icon(
+                  Icons.local_fire_department,
+                  color: Colors.redAccent,
                   size: 32,
                 ),
-                icon: _navigationIcon(
-                  icon: Icons.local_fire_department_outlined,
+                icon: Icon(
+                  Icons.local_fire_department_outlined,
                   color: Colors.grey,
                   size: 32,
                 ),
-                label: '',
-                tooltip: 'Search for people/events',
+                label: 'Find',
               ),
               NavigationDestination(
-                selectedIcon: _navigationIcon(
-                  icon: Icons.chat_bubble,
-                  color: Colors.purpleAccent,
+                selectedIcon: Icon(
+                  Icons.person_2,
+                  color: Colors.redAccent,
                   size: 28,
                 ),
-                icon: _navigationIcon(
-                  icon: Icons.chat_bubble_outline,
+                icon: Icon(
+                  Icons.person_2_outlined,
                   color: Colors.grey,
                   size: 28,
                 ),
-                label: '',
-                tooltip: 'Lets chat',
+                label: 'Profile',
               ),
             ],
           );
         },
-      ),
-    );
-  }
-
-  Widget _navigationIcon({
-    required IconData icon,
-    required Color color,
-    required double size,
-  }) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 16.0),
-      child: Icon(
-        icon,
-        size: size,
       ),
     );
   }

@@ -54,38 +54,38 @@ class _ProfileRootState extends ProfileRootViewModel
             builder: (context, selectedPageIndexValue, _) {
               return NavigationBar(
                 indicatorColor: Colors.transparent,
-                backgroundColor: Colors.purpleAccent,
+                backgroundColor: Colors.redAccent,
                 selectedIndex: selectedPageIndexValue,
                 elevation: 0,
                 height: 52,
                 onDestinationSelected: onDestinationSelected,
                 destinations: [
                   NavigationDestination(
-                    selectedIcon: _navigationIcon(
-                      icon: Icons.people_alt,
+                    selectedIcon: const Icon(
+                      Icons.settings,
                       color: Colors.white,
                       size: 32,
                     ),
-                    icon: _navigationIcon(
-                      icon: Icons.people_alt_outlined,
-                      color: Colors.black,
+                    icon: Icon(
+                      Icons.settings,
+                      color: Colors.grey[800],
                       size: 32,
                     ),
-                    label: '',
+                    label: 'Settings',
                     tooltip: 'Search for people',
                   ),
                   NavigationDestination(
-                    selectedIcon: _navigationIcon(
-                      icon: Icons.event_note,
+                    selectedIcon: const Icon(
+                      Icons.verified,
                       color: Colors.white,
                       size: 32,
                     ),
-                    icon: _navigationIcon(
-                      icon: Icons.event_note,
-                      color: Colors.black,
+                    icon: Icon(
+                      Icons.verified_outlined,
+                      color: Colors.grey[800],
                       size: 32,
                     ),
-                    label: '',
+                    label: 'Verification',
                     tooltip: 'Search for events',
                   ),
                 ],
@@ -94,20 +94,6 @@ class _ProfileRootState extends ProfileRootViewModel
           ),
         ),
         body: const RouterOutlet(),
-      ),
-    );
-  }
-
-  Widget _navigationIcon({
-    required IconData icon,
-    required Color color,
-    required double size,
-  }) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 16.0),
-      child: Icon(
-        icon,
-        size: size,
       ),
     );
   }

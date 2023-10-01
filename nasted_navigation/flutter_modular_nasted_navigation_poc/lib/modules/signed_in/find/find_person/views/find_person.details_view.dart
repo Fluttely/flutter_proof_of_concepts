@@ -121,7 +121,7 @@ class _FindPersonDetailsViewState extends FindPersonDetailsViewViewModel {
                               children: [
                                 const Icon(
                                   Icons.location_on_outlined,
-                                  color: Colors.pinkAccent,
+                                  color: Colors.redAccent,
                                   size: 14,
                                 ),
                                 Text(
@@ -271,7 +271,7 @@ class _FindPersonDetailsViewState extends FindPersonDetailsViewViewModel {
                           Text(
                             '3 Similar',
                             style: TextStyle(
-                              color: Colors.purpleAccent,
+                              color: Colors.redAccent,
                               fontSize: 16,
                             ),
                           ),
@@ -287,21 +287,21 @@ class _FindPersonDetailsViewState extends FindPersonDetailsViewViewModel {
                             margin: const EdgeInsets.all(8),
                             padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
                             decoration: BoxDecoration(
-                              color: Colors.purpleAccent.withOpacity(0.2),
+                              color: Colors.redAccent.withOpacity(0.2),
                               borderRadius: BorderRadius.circular(100),
                             ),
                             child: const Row(
                               children: [
                                 Icon(
                                   Icons.shopping_cart_rounded,
-                                  color: Colors.purpleAccent,
+                                  color: Colors.redAccent,
                                   size: 16,
                                 ),
                                 SizedBox(width: 8),
                                 Text(
                                   'Shopping',
                                   style: TextStyle(
-                                    color: Colors.purpleAccent,
+                                    color: Colors.redAccent,
                                   ),
                                 ),
                               ],
@@ -311,21 +311,21 @@ class _FindPersonDetailsViewState extends FindPersonDetailsViewViewModel {
                             margin: const EdgeInsets.all(8),
                             padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
                             decoration: BoxDecoration(
-                              color: Colors.purpleAccent.withOpacity(0.2),
+                              color: Colors.redAccent.withOpacity(0.2),
                               borderRadius: BorderRadius.circular(100),
                             ),
                             child: const Row(
                               children: [
                                 Icon(
                                   Icons.library_music,
-                                  color: Colors.purpleAccent,
+                                  color: Colors.redAccent,
                                   size: 16,
                                 ),
                                 SizedBox(width: 8),
                                 Text(
                                   'Music',
                                   style: TextStyle(
-                                    color: Colors.purpleAccent,
+                                    color: Colors.redAccent,
                                   ),
                                 ),
                               ],
@@ -335,21 +335,21 @@ class _FindPersonDetailsViewState extends FindPersonDetailsViewViewModel {
                             margin: const EdgeInsets.all(8),
                             padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
                             decoration: BoxDecoration(
-                              color: Colors.purpleAccent.withOpacity(0.2),
+                              color: Colors.redAccent.withOpacity(0.2),
                               borderRadius: BorderRadius.circular(100),
                             ),
                             child: const Row(
                               children: [
                                 Icon(
                                   Icons.local_drink_sharp,
-                                  color: Colors.purpleAccent,
+                                  color: Colors.redAccent,
                                   size: 16,
                                 ),
                                 SizedBox(width: 8),
                                 Text(
                                   'Coffe',
                                   style: TextStyle(
-                                    color: Colors.purpleAccent,
+                                    color: Colors.redAccent,
                                   ),
                                 ),
                               ],
@@ -373,14 +373,14 @@ class _FindPersonDetailsViewState extends FindPersonDetailsViewViewModel {
                               children: [
                                 Icon(
                                   Icons.menu_book_rounded,
-                                  color: Colors.purpleAccent,
+                                  color: Colors.redAccent,
                                   size: 16,
                                 ),
                                 SizedBox(width: 8),
                                 Text(
                                   'Books',
                                   style: TextStyle(
-                                    color: Colors.purpleAccent,
+                                    color: Colors.redAccent,
                                   ),
                                 ),
                               ],
@@ -397,14 +397,14 @@ class _FindPersonDetailsViewState extends FindPersonDetailsViewViewModel {
                               children: [
                                 Icon(
                                   Icons.airplanemode_active,
-                                  color: Colors.purpleAccent,
+                                  color: Colors.redAccent,
                                   size: 16,
                                 ),
                                 SizedBox(width: 8),
                                 Text(
                                   'Travel',
                                   style: TextStyle(
-                                    color: Colors.purpleAccent,
+                                    color: Colors.redAccent,
                                   ),
                                 ),
                               ],
@@ -421,14 +421,14 @@ class _FindPersonDetailsViewState extends FindPersonDetailsViewViewModel {
                               children: [
                                 Icon(
                                   Icons.sports_basketball,
-                                  color: Colors.purpleAccent,
+                                  color: Colors.redAccent,
                                   size: 16,
                                 ),
                                 SizedBox(width: 8),
                                 Text(
                                   'Basketball',
                                   style: TextStyle(
-                                    color: Colors.purpleAccent,
+                                    color: Colors.redAccent,
                                   ),
                                 ),
                               ],
@@ -489,7 +489,7 @@ class _FindPersonDetailsViewState extends FindPersonDetailsViewViewModel {
                           onPressed: () {},
                           icon: const Icon(
                             Icons.close_rounded,
-                            color: Colors.purpleAccent,
+                            color: Colors.redAccent,
                             size: 28,
                           ),
                         ),
@@ -503,8 +503,8 @@ class _FindPersonDetailsViewState extends FindPersonDetailsViewViewModel {
                             end: Alignment(0.0, 0.4),
                             begin: Alignment(0.0, -1),
                             colors: <Color>[
-                              Colors.pinkAccent,
-                              Colors.purpleAccent,
+                              Colors.redAccent,
+                              Colors.redAccent,
                             ],
                           ),
                           borderRadius: BorderRadius.circular(100),

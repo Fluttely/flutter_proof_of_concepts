@@ -21,8 +21,8 @@ class _FindPersonMatchViewState extends FindPersonMatchViewViewModel {
             end: Alignment(0.0, 0.4),
             begin: Alignment(0.0, -1),
             colors: <Color>[
-              Colors.pinkAccent,
-              Colors.purpleAccent,
+              Colors.redAccent,
+              Colors.redAccent,
             ],
           ),
         ),

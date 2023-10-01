@@ -4,9 +4,9 @@ class AppPaths {
   // /// Find
   static const String profileCurrentPath = '/profile';
   /// Find Persons
-  static const String profilePersonCurrentPath = '/person';
+  static const String profileSettingsCurrentPath = '/person';
   /// profile Events
-  static const String profileEventCurrentPath = '/event';
+  static const String profileVerificationCurrentPath = '/event';
 
   /// Find
   static const String findCurrentPath = '/find';

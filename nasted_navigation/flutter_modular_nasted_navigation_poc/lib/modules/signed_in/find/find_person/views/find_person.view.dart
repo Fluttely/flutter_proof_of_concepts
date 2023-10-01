@@ -30,8 +30,8 @@ class _FindPersonViewState extends FindPersonViewViewModel {
                 end: Alignment(0.0, 1),
                 begin: Alignment(0.0, -1),
                 colors: <Color>[
-                  Colors.purpleAccent,
-                  Colors.purpleAccent,
+                  Colors.redAccent,
+                  Colors.redAccent,
                   Colors.white,
                 ],
               ),
@@ -79,7 +79,7 @@ class _FindPersonViewState extends FindPersonViewViewModel {
                         onPressed: () {},
                         icon: const Icon(
                           Icons.close_rounded,
-                          color: Colors.purpleAccent,
+                          color: Colors.redAccent,
                           size: 28,
                         ),
                       ),
@@ -93,8 +93,8 @@ class _FindPersonViewState extends FindPersonViewViewModel {
                           end: Alignment(0.0, 0.4),
                           begin: Alignment(0.0, -1),
                           colors: <Color>[
-                            Colors.pinkAccent,
-                            Colors.purpleAccent,
+                            Colors.redAccent,
+                            Colors.redAccent,
                           ],
                         ),
                         borderRadius: BorderRadius.circular(100),

@@ -11,6 +11,12 @@ class SignedInRoot extends StatefulWidget {
 }
 
 abstract class SignedInRootViewModel extends State<SignedInRoot> {
+  @override
+  void initState() {
+    NavigationManager.navigate(AppAbsolutPathsRoutes.findPerson);
+    super.initState();
+  }
+
   late SignedInRootType type;
 
   SignedInRootType _getRootPageType(int value) => switch (value) {

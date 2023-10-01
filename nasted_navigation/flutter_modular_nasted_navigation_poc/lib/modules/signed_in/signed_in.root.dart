@@ -11,6 +11,12 @@ class SignedInRoot extends StatefulWidget {
 }
 
 abstract class SignedInRootViewModel extends State<SignedInRoot> {
+  @override
+  void initState() {
+    NavigationManager.navigate(AppAbsolutPathsRoutes.findPerson);
+    super.initState();
+  }
+
   late SignedInRootType type;
 
   SignedInRootType _getRootPageType(int value) => switch (value) {
@@ -46,37 +52,16 @@ class _SignedInRootState extends SignedInRootViewModel {
         valueListenable: NavigationManager.currentRoute,
         builder: (__, value, _) {
           return NavigationBar(
-            backgroundColor: Colors.white,
             selectedIndex:
                 value?.contains(AppAbsolutPathsRoutes.find) == true ? 0 : 1,
-            elevation: 0,
-            height: 52,
             onDestinationSelected: onDestinationSelected,
             destinations: const [
               NavigationDestination(
-                selectedIcon: Icon(
-                  Icons.local_fire_department,
-                  color: Colors.red,
-                  size: 32,
-                ),
-                icon: Icon(
-                  Icons.local_fire_department_outlined,
-                  color: Colors.grey,
-                  size: 32,
-                ),
+                icon: Icon(Icons.search),
                 label: 'Find',
               ),
               NavigationDestination(
-                selectedIcon: Icon(
-                  Icons.person_2,
-                  color: Colors.red,
-                  size: 28,
-                ),
-                icon: Icon(
-                  Icons.person_2_outlined,
-                  color: Colors.grey,
-                  size: 28,
-                ),
+                icon: Icon(Icons.person_2),
                 label: 'Profile',
               ),
             ],

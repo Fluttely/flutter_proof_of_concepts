@@ -10,4 +10,10 @@ class NavigationManager {
       Modular.to.navigate(route);
     }
   }
+
+  static void pushNamed(String route) {
+    if (route.isNotEmpty) {
+      Modular.to.pushNamed(route);
+    }
+  }
 }

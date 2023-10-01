@@ -47,40 +47,18 @@ class _FindRootState extends FindRootViewModel {
           valueListenable: NavigationManager.currentRoute,
           builder: (__, value, _) {
             return NavigationBar(
-              indicatorColor: Colors.red.shade300,
-              backgroundColor: Colors.red,
               selectedIndex:
                   value?.contains(AppAbsolutPathsRoutes.findPerson) == true
                       ? 0
                       : 1,
-              elevation: 0,
-              height: 52,
               onDestinationSelected: onDestinationSelected,
               destinations: const [
                 NavigationDestination(
-                  selectedIcon: Icon(
-                    Icons.people_alt,
-                    color: Colors.white,
-                    size: 32,
-                  ),
-                  icon: Icon(
-                    Icons.people_alt_outlined,
-                    color: Colors.black,
-                    size: 32,
-                  ),
+                  icon: Icon(Icons.people_alt_outlined),
                   label: 'Find People',
                 ),
                 NavigationDestination(
-                  selectedIcon: Icon(
-                    Icons.event_note,
-                    color: Colors.white,
-                    size: 32,
-                  ),
-                  icon: Icon(
-                    Icons.event_note,
-                    color: Colors.black,
-                    size: 32,
-                  ),
+                  icon: Icon(Icons.event_note),
                   label: 'Find Events',
                 ),
               ],

@@ -47,43 +47,21 @@ class _ProfileRootState extends ProfileRootViewModel {
           body: Row(
             children: <Widget>[
               NavigationRail(
-                indicatorColor: Colors.transparent,
-                backgroundColor: Colors.white,
                 selectedIndex:
                     value?.contains(AppAbsolutPathsRoutes.profileSettings) ==
                             true
                         ? 0
                         : 1,
                 onDestinationSelected: onDestinationSelected,
-                labelType: NavigationRailLabelType.selected,
+                labelType: NavigationRailLabelType.all,
                 destinations: const <NavigationRailDestination>[
                   NavigationRailDestination(
-                    selectedIcon: Icon(
-                      Icons.settings,
-                      size: 32,
-                    ),
-                    icon: Icon(
-                      Icons.settings,
-                      color: Colors.grey,
-                      size: 32,
-                    ),
-                    label: Text(
-                      'Settings',
-                    ),
+                    icon: Icon(Icons.settings),
+                    label: Text('Settings'),
                   ),
                   NavigationRailDestination(
-                    selectedIcon: Icon(
-                      Icons.verified,
-                      size: 32,
-                    ),
-                    icon: Icon(
-                      Icons.verified_outlined,
-                      color: Colors.grey,
-                      size: 32,
-                    ),
-                    label: Text(
-                      'Verification',
-                    ),
+                    icon: Icon(Icons.verified),
+                    label: Text('Verification'),
                   ),
                 ],
               ),

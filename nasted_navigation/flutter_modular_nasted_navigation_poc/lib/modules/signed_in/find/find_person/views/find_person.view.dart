@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/app.absolut_paths.routes.dart';
-import 'package:flutter_modular_nasted_navigation_poc/core/match_buttons_area.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/navigation_manager.dart';
 
 class FindPersonView extends StatefulWidget {
@@ -20,40 +19,20 @@ class _FindPersonViewState extends FindPersonViewViewModel {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          Container(
-            height: double.infinity,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                end: const Alignment(0.0, 1),
-                begin: const Alignment(0.0, -1),
-                colors: <Color>[
-                  Colors.red,
-                  Colors.red.shade300,
-                  Colors.white,
-                ],
-              ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('Find Page 1'),
+            ElevatedButton(
+              onPressed: () {
+                NavigationManager.pushNamed(
+                    AppAbsolutPathsRoutes.findPersonDetails);
+              },
+              child: const Text('Go to Find Page 2'),
             ),
-          ),
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 12),
-            child: InkWell(
-              onTap: () => NavigationManager.navigate(
-                  AppAbsolutPathsRoutes.findPersonDetails),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(24),
-                child: Image.network(
-                  'https://www.digitaletextil.com.br/blog/wp-content/uploads/2020/12/modelos-de-maio-corpo6.jpeg',
-                  fit: BoxFit.fitHeight,
-                ),
-              ),
-            ),
-          ),
-          const MatchButtonsArea(),
-        ],
+          ],
+        ),
       ),
     );
   }

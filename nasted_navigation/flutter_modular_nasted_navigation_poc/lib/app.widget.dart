@@ -16,13 +16,7 @@ class _AppWidgetState extends AppWidgetViewModel {
     return MaterialApp.router(
       title: 'Flutter Modular Nasted Navigation POC',
       routerConfig: Modular.routerConfig,
-      theme: ThemeData(
-        // useMaterial3: true,
-        scaffoldBackgroundColor: Colors.white,
-        canvasColor: Colors.white,
-        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.red)
-            .copyWith(background: Colors.white),
-      ),
+      theme: ThemeData(useMaterial3: true),
     );
   }
 }

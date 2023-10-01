@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/app.routes.dart';
+import 'package:flutter_modular_nasted_navigation_poc/core/navigation_manager.dart';
 
 class FindPersonDetailsView extends StatefulWidget {
   const FindPersonDetailsView({super.key});
@@ -52,7 +53,7 @@ class _FindPersonDetailsViewState extends FindPersonDetailsViewViewModel {
                     ),
                     child: IconButton(
                       onPressed: () {
-                        Modular.to.navigate(AppRoutes.findPersonAbsolutPath);
+                        NavigationManager.navigate(AppAbsolutPathsRoutes.findPerson);
                       },
                       icon: const Icon(
                         Icons.arrow_back_rounded,
@@ -520,7 +521,7 @@ class _FindPersonDetailsViewState extends FindPersonDetailsViewViewModel {
                         child: IconButton(
                           onPressed: () {
                             Modular.to
-                                .navigate(AppRoutes.findPersonMatchAbsolutPath);
+                                .navigate(AppAbsolutPathsRoutes.findPersonMatch);
                           },
                           icon: const Icon(
                             Icons.favorite_rounded,

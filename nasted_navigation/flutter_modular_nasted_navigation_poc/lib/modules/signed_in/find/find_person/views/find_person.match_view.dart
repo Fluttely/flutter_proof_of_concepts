@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/app.routes.dart';
+import 'package:flutter_modular_nasted_navigation_poc/core/navigation_manager.dart';
 
 class FindPersonMatchView extends StatefulWidget {
   const FindPersonMatchView({super.key});
@@ -184,7 +184,7 @@ class _FindPersonMatchViewState extends FindPersonMatchViewViewModel {
             ),
             InkWell(
               onTap: () {
-                Modular.to.navigate(AppRoutes.findPersonAbsolutPath);
+                NavigationManager.navigate(AppAbsolutPathsRoutes.findPerson);
               },
               child: Container(
                 height: 56,

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_modular_nasted_navigation_poc/core/app.routes.dart';
 
 class ProfileSettingsView extends StatefulWidget {
   const ProfileSettingsView({super.key});
@@ -18,15 +16,6 @@ abstract class ProfilePersonViewViewModel extends State<ProfileSettingsView> {
 class _ProfileSettingsViewState extends ProfilePersonViewViewModel {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Modular.to.navigate(AppRoutes.findPersonAbsolutPath);
-          },
-          child: const Text('Navigate to Find People Page'),
-        ),
-      ),
-    );
+    return const Center(child: Icon(Icons.settings));
   }
 }

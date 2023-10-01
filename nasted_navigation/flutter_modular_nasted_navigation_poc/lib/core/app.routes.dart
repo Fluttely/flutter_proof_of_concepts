@@ -1,29 +1,29 @@
-import 'package:flutter_modular_nasted_navigation_poc/core/app.paths.dart';
+import 'package:flutter_modular_nasted_navigation_poc/core/app.current_paths.dart';
 
-class AppRoutes {
+class AppAbsolutPathsRoutes {
   /// Profile
-  static const String _profileAbsolutPath = AppPaths.profileCurrentPath;
+  static const String profile = AppCurrentPaths.profile;
 
-  /// Profile Persons
-  static const String profilePersonAbsolutPath =
-      _profileAbsolutPath + AppPaths.profileSettingsCurrentPath;
+  /// Profile Settings
+  static const String profileSettings =
+      profile + AppCurrentPaths.profileSettings;
 
-  /// Profile Events
-  static const String profileEventAbsolutPath =
-      _profileAbsolutPath + AppPaths.profileVerificationCurrentPath;
+  /// Profile Verification
+  static const String profileVerification =
+      profile + AppCurrentPaths.profileVerification;
 
   /// Find
-  static const String _findAbsolutPath = AppPaths.findCurrentPath;
+  static const String find = AppCurrentPaths.find;
 
   /// Find Persons
-  static const String findPersonAbsolutPath =
-      _findAbsolutPath + AppPaths.findPersonCurrentPath;
-  static const String findPersonDetailsAbsolutPath =
-      findPersonAbsolutPath + AppPaths.findPersonDetailsCurrentPath;
-  static const String findPersonMatchAbsolutPath =
-      findPersonAbsolutPath + AppPaths.findPersonMatchCurrentPath;
+  static const String findPerson =
+      find + AppCurrentPaths.findPerson;
+  static const String findPersonDetails =
+      findPerson + AppCurrentPaths.findPersonDetails;
+  static const String findPersonMatch =
+      findPerson + AppCurrentPaths.findPersonMatch;
 
   /// Find Events
-  static const String findEventAbsolutPath =
-      _findAbsolutPath + AppPaths.findEventCurrentPath;
+  static const String findEvent =
+      find + AppCurrentPaths.findEvent;
 }

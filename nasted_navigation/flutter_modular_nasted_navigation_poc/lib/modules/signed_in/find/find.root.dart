@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/app.routes.dart';
+import 'package:flutter_modular_nasted_navigation_poc/core/navigation_manager.dart';
 
 class FindRoot extends StatefulWidget {
   const FindRoot({super.key});
@@ -22,9 +23,9 @@ abstract class FindRootViewModel extends State<FindRoot> {
 
   void rootNavigate(FindRootPageType value) => switch (value) {
         FindRootPageType.person =>
-          Modular.to.navigate(AppRoutes.findPersonAbsolutPath),
+          NavigationManager.navigate(AppAbsolutPathsRoutes.findPerson),
         FindRootPageType.event =>
-          Modular.to.navigate(AppRoutes.findEventAbsolutPath),
+          NavigationManager.navigate(AppAbsolutPathsRoutes.findEvent),
       };
 
   void onDestinationSelected(int index) {
@@ -40,59 +41,58 @@ enum FindRootPageType {
   event,
 }
 
-class _FindRootState extends FindRootViewModel
-    with SingleTickerProviderStateMixin {
+class _FindRootState extends FindRootViewModel {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(64.0),
-          child: ValueListenableBuilder(
-            valueListenable: selectedPageIndex,
-            builder: (context, selectedPageIndexValue, _) {
-              return NavigationBar(
-                indicatorColor: Colors.transparent,
-                backgroundColor: Colors.redAccent,
-                selectedIndex: selectedPageIndexValue,
-                elevation: 0,
-                height: 52,
-                onDestinationSelected: onDestinationSelected,
-                destinations: const [
-                  NavigationDestination(
-                    selectedIcon: Icon(
-                      Icons.people_alt,
-                      color: Colors.white,
-                      size: 32,
-                    ),
-                    icon: Icon(
-                      Icons.people_alt_outlined,
-                      color: Colors.black,
-                      size: 32,
-                    ),
-                    label: 'Find People',
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(64.0),
+        child: ValueListenableBuilder(
+          valueListenable: NavigationManager.currentRoute,
+          builder: (__, value, _) {
+            return NavigationBar(
+              indicatorColor: Colors.transparent,
+              backgroundColor: Colors.redAccent,
+              selectedIndex:
+                  value?.contains(AppAbsolutPathsRoutes.findPerson) == true
+                      ? 0
+                      : 1,
+              elevation: 0,
+              height: 52,
+              onDestinationSelected: onDestinationSelected,
+              destinations: const [
+                NavigationDestination(
+                  selectedIcon: Icon(
+                    Icons.people_alt,
+                    color: Colors.white,
+                    size: 32,
                   ),
-                  NavigationDestination(
-                    selectedIcon: Icon(
-                      Icons.event_note,
-                      color: Colors.white,
-                      size: 32,
-                    ),
-                    icon: Icon(
-                      Icons.event_note,
-                      color: Colors.black,
-                      size: 32,
-                    ),
-                    label: 'Find Events',
+                  icon: Icon(
+                    Icons.people_alt_outlined,
+                    color: Colors.black,
+                    size: 32,
                   ),
-                ],
-              );
-            },
-          ),
+                  label: 'Find People',
+                ),
+                NavigationDestination(
+                  selectedIcon: Icon(
+                    Icons.event_note,
+                    color: Colors.white,
+                    size: 32,
+                  ),
+                  icon: Icon(
+                    Icons.event_note,
+                    color: Colors.black,
+                    size: 32,
+                  ),
+                  label: 'Find Events',
+                ),
+              ],
+            );
+          },
         ),
-        body: const RouterOutlet(),
       ),
+      body: const RouterOutlet(),
     );
   }
 }

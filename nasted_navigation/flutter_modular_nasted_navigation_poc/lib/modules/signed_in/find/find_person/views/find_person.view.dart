@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/app.routes.dart';
+import 'package:flutter_modular_nasted_navigation_poc/core/navigation_manager.dart';
 
 class FindPersonView extends StatefulWidget {
   const FindPersonView({super.key});
@@ -40,8 +41,8 @@ class _FindPersonViewState extends FindPersonViewViewModel {
           Container(
             margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 12),
             child: InkWell(
-              onTap: () =>
-                  Modular.to.navigate(AppRoutes.findPersonDetailsAbsolutPath),
+              onTap: () => NavigationManager.navigate(
+                  AppAbsolutPathsRoutes.findPersonDetails),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(24),
                 child: Image.network(
@@ -109,7 +110,8 @@ class _FindPersonViewState extends FindPersonViewViewModel {
                       ),
                       child: IconButton(
                         onPressed: () {
-                          Modular.to.navigate(AppRoutes.findPersonMatchAbsolutPath);
+                          Modular.to
+                              .navigate(AppAbsolutPathsRoutes.findPersonMatch);
                         },
                         icon: const Icon(
                           Icons.favorite_rounded,

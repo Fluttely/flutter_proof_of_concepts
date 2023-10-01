@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/app.routes.dart';
+import 'package:flutter_modular_nasted_navigation_poc/core/navigation_manager.dart';
 
 class ProfileRoot extends StatefulWidget {
   const ProfileRoot({super.key});
@@ -22,9 +23,9 @@ abstract class ProfileRootViewModel extends State<ProfileRoot> {
 
   void rootNavigate(ProfileRootPageType value) => switch (value) {
         ProfileRootPageType.person =>
-          Modular.to.navigate(AppRoutes.profilePersonAbsolutPath),
+          NavigationManager.navigate(AppAbsolutPathsRoutes.profileSettings),
         ProfileRootPageType.event =>
-          Modular.to.navigate(AppRoutes.profileEventAbsolutPath),
+          NavigationManager.navigate(AppAbsolutPathsRoutes.profileVerification),
       };
 
   void onDestinationSelected(int index) {
@@ -40,61 +41,60 @@ enum ProfileRootPageType {
   event,
 }
 
-class _ProfileRootState extends ProfileRootViewModel
-    with SingleTickerProviderStateMixin {
+class _ProfileRootState extends ProfileRootViewModel {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(64.0),
-          child: ValueListenableBuilder(
-            valueListenable: selectedPageIndex,
-            builder: (context, selectedPageIndexValue, _) {
-              return NavigationBar(
-                indicatorColor: Colors.transparent,
-                backgroundColor: Colors.redAccent,
-                selectedIndex: selectedPageIndexValue,
-                elevation: 0,
-                height: 52,
-                onDestinationSelected: onDestinationSelected,
-                destinations: [
-                  NavigationDestination(
-                    selectedIcon: const Icon(
-                      Icons.settings,
-                      color: Colors.white,
-                      size: 32,
-                    ),
-                    icon: Icon(
-                      Icons.settings,
-                      color: Colors.grey[800],
-                      size: 32,
-                    ),
-                    label: 'Settings',
-                    tooltip: 'Search for people',
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(64.0),
+        child: ValueListenableBuilder(
+          valueListenable: NavigationManager.currentRoute,
+          builder: (__, value, _) {
+            return NavigationBar(
+              indicatorColor: Colors.transparent,
+              backgroundColor: Colors.redAccent,
+              selectedIndex:
+                  value?.contains(AppAbsolutPathsRoutes.profileSettings) == true
+                      ? 0
+                      : 1,
+              elevation: 0,
+              height: 52,
+              onDestinationSelected: onDestinationSelected,
+              destinations: [
+                NavigationDestination(
+                  selectedIcon: const Icon(
+                    Icons.settings,
+                    color: Colors.white,
+                    size: 32,
                   ),
-                  NavigationDestination(
-                    selectedIcon: const Icon(
-                      Icons.verified,
-                      color: Colors.white,
-                      size: 32,
-                    ),
-                    icon: Icon(
-                      Icons.verified_outlined,
-                      color: Colors.grey[800],
-                      size: 32,
-                    ),
-                    label: 'Verification',
-                    tooltip: 'Search for events',
+                  icon: Icon(
+                    Icons.settings,
+                    color: Colors.grey[800],
+                    size: 32,
                   ),
-                ],
-              );
-            },
-          ),
+                  label: 'Settings',
+                  tooltip: 'Search for people',
+                ),
+                NavigationDestination(
+                  selectedIcon: const Icon(
+                    Icons.verified,
+                    color: Colors.white,
+                    size: 32,
+                  ),
+                  icon: Icon(
+                    Icons.verified_outlined,
+                    color: Colors.grey[800],
+                    size: 32,
+                  ),
+                  label: 'Verification',
+                  tooltip: 'Search for events',
+                ),
+              ],
+            );
+          },
         ),
-        body: const RouterOutlet(),
       ),
+      body: const RouterOutlet(),
     );
   }
 }

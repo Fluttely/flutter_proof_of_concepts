@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/app.routes.dart';
+import 'package:flutter_modular_nasted_navigation_poc/core/navigation_manager.dart';
 
 class SignedInRoot extends StatefulWidget {
   const SignedInRoot({super.key});
@@ -12,7 +13,7 @@ class SignedInRoot extends StatefulWidget {
 abstract class SignedInRootViewModel extends State<SignedInRoot> {
   @override
   void initState() {
-    Modular.to.navigate(AppRoutes.findPersonAbsolutPath);
+    NavigationManager.navigate(AppAbsolutPathsRoutes.findPerson);
     super.initState();
   }
 
@@ -27,9 +28,10 @@ abstract class SignedInRootViewModel extends State<SignedInRoot> {
       };
 
   void rootNavigate(SignedInRootType value) => switch (value) {
-        SignedInRootType.find => Modular.to.navigate(AppRoutes.findPersonAbsolutPath),
+        SignedInRootType.find =>
+          NavigationManager.navigate(AppAbsolutPathsRoutes.findPerson),
         SignedInRootType.chats =>
-          Modular.to.navigate(AppRoutes.profilePersonAbsolutPath),
+          NavigationManager.navigate(AppAbsolutPathsRoutes.profileSettings),
       };
 
   void onDestinationSelected(int index) {
@@ -51,12 +53,13 @@ class _SignedInRootState extends SignedInRootViewModel {
     return Scaffold(
       body: const RouterOutlet(),
       bottomNavigationBar: ValueListenableBuilder(
-        valueListenable: selectedPageIndex,
-        builder: (context, selectedPageIndexValue, _) {
+        valueListenable: NavigationManager.currentRoute,
+        builder: (__, value, _) {
           return NavigationBar(
             indicatorColor: Colors.transparent,
             backgroundColor: Colors.white,
-            selectedIndex: selectedPageIndexValue,
+            selectedIndex:
+                value?.contains(AppAbsolutPathsRoutes.find) == true ? 0 : 1,
             elevation: 0,
             shadowColor: Colors.redAccent,
             height: 52,

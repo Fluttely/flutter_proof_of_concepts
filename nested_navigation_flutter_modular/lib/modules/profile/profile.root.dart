@@ -4,23 +4,23 @@ import 'package:nested_navigation_flutter_modular/core/app.routes.dart';
 import 'package:nested_navigation_flutter_modular/core/navigation_manager.dart';
 
 enum ProfileRootType {
-  person,
-  event,
+  settings,
+  verification,
 }
 
 class ProfileRoot extends StatelessWidget {
   const ProfileRoot({super.key});
 
   ProfileRootType _getRootType(int value) => switch (value) {
-        0 => ProfileRootType.person,
-        1 => ProfileRootType.event,
-        _ => ProfileRootType.person,
+        0 => ProfileRootType.settings,
+        1 => ProfileRootType.verification,
+        _ => ProfileRootType.settings,
       };
 
   void rootNavigate(ProfileRootType value) => switch (value) {
-        ProfileRootType.person =>
+        ProfileRootType.settings =>
           NavigationManager.navigate(AppRoutes.profileSettings),
-        ProfileRootType.event =>
+        ProfileRootType.verification =>
           NavigationManager.navigate(AppRoutes.profileVerification),
       };
 

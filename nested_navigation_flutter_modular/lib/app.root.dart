@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:nested_navigation_flutter_modular/core/app.routes.dart';
-import 'package:nested_navigation_flutter_modular/core/navigation_manager.dart';
+import 'package:nested_navigation_flutter_modular/core/navigation.manager.dart';
 
 enum AppRootType {
   find,
@@ -18,7 +18,7 @@ class AppRoot extends StatefulWidget {
 abstract class AppRootViewModel extends State<AppRoot> {
   @override
   void initState() {
-    NavigationManager.navigate(AppRoutes.findPerson);
+    NavigationManager.navigate(AppRoutes.find);
     super.initState();
   }
 
@@ -30,9 +30,9 @@ abstract class AppRootViewModel extends State<AppRoot> {
 
   void rootNavigate(AppRootType value) => switch (value) {
         AppRootType.find =>
-          NavigationManager.navigate(AppRoutes.findPerson),
+          NavigationManager.navigate(AppRoutes.find),
         AppRootType.profle =>
-          NavigationManager.navigate(AppRoutes.profileSettings),
+          NavigationManager.navigate(AppRoutes.profile),
       };
 
   void onDestinationSelected(int index) {

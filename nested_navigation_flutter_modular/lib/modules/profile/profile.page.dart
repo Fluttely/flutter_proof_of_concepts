@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nested_navigation_flutter_modular/core/app.routes.dart';
-import 'package:nested_navigation_flutter_modular/core/navigation_manager.dart';
+import 'package:nested_navigation_flutter_modular/core/navigation.manager.dart';
 
-class ProfileSettingsPage extends StatelessWidget {
-  const ProfileSettingsPage({super.key});
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class ProfileSettingsPage extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () {
             NavigationManager.navigate(
-                AppRoutes.profileVerification);
+                AppRoutes.find);
           },
           child: const Text('Navigate to "Profile Veification Page"'),
         ),

@@ -1,6 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_modular_nasted_navigation_poc/core/app.paths.dart';
-import 'package:flutter_modular_nasted_navigation_poc/modules/find/find_person/find_person.module.dart';
+import 'package:nasted_navigation_flutter_modular/core/app.paths.dart';
+import 'package:nasted_navigation_flutter_modular/modules/find/find_person/find_person.module.dart';
 
 import 'find.root.dart';
 import 'find_event/find_event.module.dart';

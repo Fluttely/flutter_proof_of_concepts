@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_modular_nasted_navigation_poc/core/app.absolut_paths.routes.dart';
+import 'package:flutter_modular_nasted_navigation_poc/core/app.routes.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/navigation_manager.dart';
 
 enum FindRootType {
@@ -19,9 +19,9 @@ class FindRoot extends StatelessWidget {
 
   void rootNavigate(FindRootType value) => switch (value) {
         FindRootType.person =>
-          NavigationManager.navigate(AppAbsolutPathsRoutes.findPerson),
+          NavigationManager.navigate(AppRoutes.findPerson),
         FindRootType.event =>
-          NavigationManager.navigate(AppAbsolutPathsRoutes.findEvent),
+          NavigationManager.navigate(AppRoutes.findEvent),
       };
 
   void onDestinationSelected(int index) {
@@ -39,7 +39,7 @@ class FindRoot extends StatelessWidget {
           builder: (__, value, _) {
             return NavigationBar(
               selectedIndex:
-                  value?.contains(AppAbsolutPathsRoutes.findPerson) == true
+                  value?.contains(AppRoutes.findPerson) == true
                       ? 0
                       : 1,
               onDestinationSelected: onDestinationSelected,

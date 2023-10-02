@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_modular_nasted_navigation_poc/core/app.absolut_paths.routes.dart';
+import 'package:flutter_modular_nasted_navigation_poc/core/app.routes.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/navigation_manager.dart';
 
 enum ProfileRootType {
@@ -19,9 +19,9 @@ class ProfileRoot extends StatelessWidget {
 
   void rootNavigate(ProfileRootType value) => switch (value) {
         ProfileRootType.person =>
-          NavigationManager.navigate(AppAbsolutPathsRoutes.profileSettings),
+          NavigationManager.navigate(AppRoutes.profileSettings),
         ProfileRootType.event =>
-          NavigationManager.navigate(AppAbsolutPathsRoutes.profileVerification),
+          NavigationManager.navigate(AppRoutes.profileVerification),
       };
 
   void onDestinationSelected(int index) {
@@ -39,7 +39,7 @@ class ProfileRoot extends StatelessWidget {
             children: <Widget>[
               NavigationRail(
                 selectedIndex:
-                    value?.contains(AppAbsolutPathsRoutes.profileSettings) ==
+                    value?.contains(AppRoutes.profileSettings) ==
                             true
                         ? 0
                         : 1,

@@ -9,8 +9,8 @@ class AppModule extends Module {
   @override
   void routes(r) {
     r.child('/', child: (context) => const AppRoot(), children: [
-      ModuleRoute(AppCurrentPaths.find, module: FindModule()),
-      ModuleRoute(AppCurrentPaths.profile, module: ProfileModule()),
+      ModuleRoute(AppPaths.find, module: FindModule()),
+      ModuleRoute(AppPaths.profile, module: ProfileModule()),
     ]);
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_modular_nasted_navigation_poc/core/app.absolut_paths.routes.dart';
+import 'package:flutter_modular_nasted_navigation_poc/core/app.routes.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/navigation_manager.dart';
 
 enum AppRootType {
@@ -18,7 +18,7 @@ class AppRoot extends StatefulWidget {
 abstract class AppRootViewModel extends State<AppRoot> {
   @override
   void initState() {
-    NavigationManager.navigate(AppAbsolutPathsRoutes.findPerson);
+    NavigationManager.navigate(AppRoutes.findPerson);
     super.initState();
   }
 
@@ -30,9 +30,9 @@ abstract class AppRootViewModel extends State<AppRoot> {
 
   void rootNavigate(AppRootType value) => switch (value) {
         AppRootType.find =>
-          NavigationManager.navigate(AppAbsolutPathsRoutes.findPerson),
+          NavigationManager.navigate(AppRoutes.findPerson),
         AppRootType.chats =>
-          NavigationManager.navigate(AppAbsolutPathsRoutes.profileSettings),
+          NavigationManager.navigate(AppRoutes.profileSettings),
       };
 
   void onDestinationSelected(int index) {
@@ -51,7 +51,7 @@ class _AppRootState extends AppRootViewModel {
         builder: (__, value, _) {
           return NavigationBar(
             selectedIndex:
-                value?.contains(AppAbsolutPathsRoutes.find) == true ? 0 : 1,
+                value?.contains(AppRoutes.find) == true ? 0 : 1,
             onDestinationSelected: onDestinationSelected,
             destinations: const [
               NavigationDestination(

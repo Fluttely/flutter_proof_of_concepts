@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular_nasted_navigation_poc/core/app.absolut_paths.routes.dart';
+import 'package:flutter_modular_nasted_navigation_poc/core/app.routes.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/navigation_manager.dart';
 
 class ProfileVerificationPage extends StatelessWidget {
@@ -14,7 +14,7 @@ class ProfileVerificationPage extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            NavigationManager.navigate(AppAbsolutPathsRoutes.findEvent);
+            NavigationManager.navigate(AppRoutes.findEvent);
           },
           child: const Text('Navigate to "Find Event Page"'),
         ),

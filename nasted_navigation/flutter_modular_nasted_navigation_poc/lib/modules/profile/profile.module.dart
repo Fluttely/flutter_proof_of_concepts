@@ -8,9 +8,9 @@ class ProfileModule extends Module {
   @override
   void routes(r) {
     r.child('/', child: (context) => const ProfileRoot(), children: [
-      ModuleRoute(AppCurrentPaths.profileSettings,
+      ModuleRoute(AppPaths.settings,
           module: ProfileSettingsModule()),
-      ModuleRoute(AppCurrentPaths.profileVerification,
+      ModuleRoute(AppPaths.verification,
           module: ProfileVerificationModule()),
     ]);
   }

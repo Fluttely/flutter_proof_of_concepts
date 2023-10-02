@@ -1,6 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_modular_nasted_navigation_poc/core/app.current_paths.dart';
-import 'package:flutter_modular_nasted_navigation_poc/modules/signed_in/profile/profile.module.dart';
+import 'package:flutter_modular_nasted_navigation_poc/modules/profile/profile.module.dart';
 
 import 'app.root.dart';
 import 'modules/find/find.module.dart';

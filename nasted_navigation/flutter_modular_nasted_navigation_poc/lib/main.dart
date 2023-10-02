@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_modular_nasted_navigation_poc/modules/signed_in/app.module.dart';
+import 'package:flutter_modular_nasted_navigation_poc/app.module.dart';
 
 import 'app.widget.dart';
 

@@ -5,7 +5,7 @@ import 'package:nested_navigation_flutter_modular/core/navigation_manager.dart';
 
 enum AppRootType {
   find,
-  chats,
+  profle,
 }
 
 class AppRoot extends StatefulWidget {
@@ -24,14 +24,14 @@ abstract class AppRootViewModel extends State<AppRoot> {
 
   AppRootType _getRootType(int value) => switch (value) {
         0 => AppRootType.find,
-        1 => AppRootType.chats,
+        1 => AppRootType.profle,
         _ => AppRootType.find,
       };
 
   void rootNavigate(AppRootType value) => switch (value) {
         AppRootType.find =>
           NavigationManager.navigate(AppRoutes.findPerson),
-        AppRootType.chats =>
+        AppRootType.profle =>
           NavigationManager.navigate(AppRoutes.profileSettings),
       };
 

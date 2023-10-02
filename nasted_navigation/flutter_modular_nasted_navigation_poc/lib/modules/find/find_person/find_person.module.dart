@@ -1,5 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_modular_nasted_navigation_poc/core/app.current_paths.dart';
+import 'package:flutter_modular_nasted_navigation_poc/core/app.paths.dart';
 
 import 'find_person.details.page.dart';
 import 'find_person.page.dart';

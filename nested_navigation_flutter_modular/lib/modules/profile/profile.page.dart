@@ -9,7 +9,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile Settings Page'),
+        title: const Text('Profile Page'),
       ),
       body: Center(
         child: ElevatedButton(
@@ -17,7 +17,7 @@ class ProfilePage extends StatelessWidget {
             NavigationManager.navigate(
                 AppRoutes.find);
           },
-          child: const Text('Navigate to "Profile Veification Page"'),
+          child: const Text('Navigate to "Find Page"'),
         ),
       ),
     );

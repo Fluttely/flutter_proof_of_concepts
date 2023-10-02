@@ -16,7 +16,7 @@ class FindDetailsPage extends StatelessWidget {
           onPressed: () {
             NavigationManager.navigate(AppRoutes.profile);
           },
-          child: const Text('Navigate to "profile Settings Page"'),
+          child: const Text('Navigate to "Profile Page"'),
         ),
       ),
     );

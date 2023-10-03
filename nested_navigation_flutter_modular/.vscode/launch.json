@@ -1,12 +1,6 @@
 {
     "configurations": [
         {
-            "name": "Device",
-            "type": "dart",
-            "request": "launch",
-            "program": "lib/main.dart",
-        },
-        {
             "name": "Web",
             "type": "dart",
             "request": "launch",
@@ -17,6 +11,12 @@
                 "--web-renderer",
                 "html"
             ]
-        }
+        },
+        {
+            "name": "Device",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+        },
     ]
 }

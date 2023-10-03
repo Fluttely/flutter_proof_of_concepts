@@ -6,6 +6,8 @@ $ git checkout poc_name/example_name
 Example:
 
 ```shell
+$ git checkout nested_navigation_flutter_modular/simple_example
+$ git checkout nested_navigation_flutter_modular/medium_example
 $ git checkout nested_navigation_flutter_modular/full_example
 $ git checkout nested_navigation_flutter_modular/tinder_example
 ```

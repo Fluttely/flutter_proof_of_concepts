@@ -6,6 +6,6 @@ $ git checkout poc/example
 Example:
 
 ```shell
-$ git checkout nested_navigation_flutter_modular/master
-$ git checkout nested_navigation_flutter_modular/tinder_clone
+$ git checkout nested_navigation_flutter_modular/full_example
+$ git checkout nested_navigation_flutter_modular/tinder_example
 ```

@@ -1,7 +1,7 @@
 ﻿# flutter_proof_of_concepts
 
 ## To access the example branch for each POC, please use the following commands:
-$ git checkout poc/example
+$ git checkout poc_name/example_name
 
 Example:
 

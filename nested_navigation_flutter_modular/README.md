@@ -1,4 +1,4 @@
-# nasted_navigation_flutter_modular
+# Flutter Nested Navigation with flutter_modular/RouteOutlet
 
 Demonstrating the "Nested Navigation" approach using Flutter Modular!
 

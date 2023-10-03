@@ -12,21 +12,27 @@ We employ the RouterOutlet widget to implement Nested Navigation.
 
 ## Tutorial do Youtube em português aqui: https://www.youtube.com/watch?v=69TRRRcazqk&t=795s&ab_channel=JacobMouradaFlutterando
 
-## To access the example branch for each POC, please use the following commands:
-
+## To clone and access the repository:
 ```shell
-$ git checkout nested_navigation_flutter_modular/simple_example
-$ git checkout nested_navigation_flutter_modular/medium_example
-$ git checkout nested_navigation_flutter_modular/full_example
-$ git checkout nested_navigation_flutter_modular/tinder_example
+$ git clone https://github.com/Fluttely/flutter_proof_of_concepts.git
+
+$ cd flutter_proof_of_concepts/nested_navigation_flutter_modular
 ```
 
-Or go directly to original branch:
-
-https://github.com/Fluttely/flutter_proof_of_concepts/tree/nasted_navigation_flutter_modular/simple_example
-
-https://github.com/Fluttely/flutter_proof_of_concepts/tree/nasted_navigation_flutter_modular/medium_example
-
-https://github.com/Fluttely/flutter_proof_of_concepts/tree/nasted_navigation_flutter_modular/full_example
-
-https://github.com/Fluttely/flutter_proof_of_concepts/tree/nested_navigation_flutter_modular/tinder_example
+## To access the example branch for each POC example, please use the following commands:
+### Simple Example:
+```shell
+$ git checkout nested_navigation_flutter_modular/simple_example
+```
+### Medium Example:
+```shell
+$ git checkout nested_navigation_flutter_modular/medium_example
+```
+### Full Example:
+```shell
+$ git checkout nested_navigation_flutter_modular/full_example
+```
+### Tinder Example:
+```shell
+$ git checkout nested_navigation_flutter_modular/tinder_example
+```

@@ -12,7 +12,7 @@ We employ the RouterOutlet widget to implement Nested Navigation.
 
 ## Tutorial do Youtube em português aqui: https://www.youtube.com/watch?v=69TRRRcazqk&t=795s&ab_channel=JacobMouradaFlutterando
 
-## To access the example branch for each POC, please use the following commands:
+## To access the example branch for each POC example, please use the following commands:
 
 ```shell
 $ git clone https://github.com/Fluttely/flutter_proof_of_concepts.git
